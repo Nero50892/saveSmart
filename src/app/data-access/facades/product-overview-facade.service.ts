@@ -1,36 +1,10 @@
 import { Injectable, Signal, WritableSignal, inject, signal } from '@angular/core';
 import { MobilezoneMiddlewareApiService } from '../infrastructure/mobilezone-middleware-api.service';
 import { SelectItem } from 'primeng/api';
-import { Product } from '../product-overview/product-overview.component';
-
-export interface ManufacturerFilter {
-  name: string;
-  values: {
-    value: string[] | string;
-    type: string;
-    exclude: boolean
-  }[];
-  substring: boolean
-}
-
-export interface AllSmartphoneByManufacturerFilter {
-  query: string;
-  filters: ManufacturerFilter[];
-  page: number;
-  hitsPerPage: number;
-}
-
-export interface AllProductsBySmartphoneFilter {
-  sku: string;
-  productType: "device";
-  searchInformation: {
-    page: number;
-    hitsPerPage: number;
-    filter: string[]
-  };
-  parentSku: string
-}
-
+import { AllProductsBySmartphoneFilter } from 'src/app/utils/interfaces/all-products-by-smartphone-filter.interface';
+import { AllSmartphoneByManufacturerFilter } from 'src/app/utils/interfaces/all-smartphones-by-manufacturer-filter.interface';
+import { ManufacturerFilter } from 'src/app/utils/interfaces/manufacturer-filter.interface';
+import { Product } from 'src/app/utils/interfaces/product.interface';
 
 @Injectable({
   providedIn: 'root'

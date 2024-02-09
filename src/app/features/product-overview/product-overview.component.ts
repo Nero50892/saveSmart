@@ -7,35 +7,17 @@ import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { TableModule } from 'primeng/table';
-import { ProductOverviewFacadeService } from '../facades/product-overview-facade.service';
-import { ProductCardComponent } from "../product-card/product-card.component";
-import { ProductOverviewHeaderComponent } from "../product-overview-header/product-overview-header.component";
-import { CurrencyFormatPipe } from "../currency-format.pipe";
-
-export interface Highlight {
-  "icon": string,
-  "headline": string,
-  "subline": string
-}
-export interface Product {
-  id: string,
-  category: "tarife_o2" | "tarife_vodafone",
-  name: string,
-  description: string,
-  oneTimeCost: string,
-  monthlyCost: string,
-  monthlyCostsNumber: number,
-  maxCosts: string,
-  maxCostsNumber: number,
-  highlights: Highlight
-}
+import { ProductOverviewHeaderComponent } from "../../ui/product-overview-header/product-overview-header.component";
+import { CurrencyFormatPipe } from "../../utils/pipes/currency-format.pipe";
+import { ProductOverviewFacadeService } from '../../data-access/facades/product-overview-facade.service';
+import { Product } from '../../utils/interfaces/product.interface';
 
 @Component({
   selector: 'app-product-overview',
   standalone: true,
   templateUrl: './product-overview.component.html',
   styleUrl: './product-overview.component.scss',
-  imports: [FormsModule, ReactiveFormsModule, DataViewModule, DropdownModule, CommonModule, ProductCardComponent, ButtonModule, DialogModule, InputTextareaModule, ProductOverviewHeaderComponent, TableModule, CurrencyFormatPipe],
+  imports: [FormsModule, ReactiveFormsModule, DataViewModule, DropdownModule, CommonModule, ButtonModule, DialogModule, InputTextareaModule, ProductOverviewHeaderComponent, TableModule, CurrencyFormatPipe],
   encapsulation: ViewEncapsulation.None
 })
 export class ProductOverviewComponent {

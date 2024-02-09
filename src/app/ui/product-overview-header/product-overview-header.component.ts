@@ -6,7 +6,7 @@ import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { ProductOverviewFacadeService } from '../facades/product-overview-facade.service';
+import { ProductOverviewFacadeService } from '../../data-access/facades/product-overview-facade.service';
 
 @Component({
   selector: 'app-product-overview-header',
@@ -31,6 +31,8 @@ export class ProductOverviewHeaderComponent {
   visible: boolean = false;
   clearDataViewDisabled: boolean = true;
   sendRequestDisabled: boolean = true;
+
+  //TODO: weitere input parameter hinzufügen damit diese component dumb-component sein kann, facade rauslöschen
 
   @Output() manualJsonChangedEvent: EventEmitter<string> = new EventEmitter();
   @Output() resetDataViewEvent: EventEmitter<void> = new EventEmitter();
