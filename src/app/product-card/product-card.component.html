@@ -1,0 +1,29 @@
+<div class="p-4" [ngClass]="{ 'border-top-1 surface-border': !first }">
+  <div class="flex flex-row justify-content-start align-items-end">
+    @if (item.category === "tarife_o2") {
+    <img
+      class="w-5rem shadow-2 block xl:block border-round"
+      src="./../../assets/img/o2.png"
+      alt=""
+    />
+    } @else if (item.category === "tarife_vodafone"){
+    <img
+      class="w-5rem shadow-2 block xl:block border-round"
+      src="./../../assets/img/vodafone.png"
+      alt=""
+    />
+    } @else {
+      None Picture
+    }
+    <h1 class="text-3xl ml-3">{{ item.description }}</h1>
+    <p class="ml-3">{{ item.highlights.headline }}</p>
+    <p class="ml-3">{{ item.highlights.subline }}</p>
+  </div>
+  <div class="flex flex-row justify-content-between align-items-start pt-2">
+    <p>Einmalig: {{ item.oneTimeCost | currencyFormat }}</p>
+    <p>Monatlich: {{ item.monthlyCost | currencyFormat }}</p>
+    <p>
+      <b>Gesamt: {{ item.maxCosts | currencyFormat }}</b>
+    </p>
+  </div>
+</div>

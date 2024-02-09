@@ -1,0 +1,50 @@
+<div class="card">
+  <p-table [value]="mappedProductList" styleClass="p-datatable-gridlines"  [scrollable]="true" [scrollHeight]="'90vh'">
+    <ng-template pTemplate="caption">
+      <app-product-overview-header
+        (manualJsonChangedEvent)="loadProducts($event)"
+        (resetDataViewEvent)="clearDataView()"
+      />
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr class="new-column-header">
+        <th>Anbieter</th>
+        <th>Provider</th>
+        <th>Tarif</th>
+        <th>Datenvolumen</th>
+        <th>Einmalig / Monatlich</th>
+        <th pSortableColumn="maxCostsNumber">
+          Gesamtpreis
+          <p-sortIcon field="maxCostsNumber"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>Sparhandy</td>
+        <td>{{ getProvider(product.category) }}</td>
+        <td>{{ product.description }}</td>
+        <td>
+          {{ product.highlights.headline + " " + product.highlights.subline }}
+        </td>
+        <td>
+          {{ product.oneTimeCost | currencyFormat }} /
+          {{ product.monthlyCost | currencyFormat }}
+        </td>
+        <td>{{ product.maxCosts | currencyFormat }}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="flex align-items-center justify-content-between">
+          In total there are {{mappedProductList ? mappedProductList.length : 0 }} products.
+      </div>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="100%">
+         <p class="flex flex-row justify-content-center">No records found</p>
+      </td>
+    </tr>
+  </ng-template>
+  </p-table>
+</div>
