@@ -5,3 +5,11 @@
     background-color: rgb(106, 179, 228);
     color: white;
 }
+
+.new-table-caption .p-datatable-header {
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.new-table-caption .p-datatable-footer {
+    border-radius: 0 0 0.5rem 0.5rem;
+}

@@ -1,5 +1,9 @@
-<div class="card">
-  <p-table [value]="mappedProductList" styleClass="p-datatable-gridlines"  [scrollable]="true" [scrollHeight]="'90vh'">
+<p-table 
+[value]="mappedProductList" 
+styleClass="p-datatable-gridlines p-2"  
+styleClass="new-table-caption"  
+[scrollable]="true" 
+[scrollHeight]="'90vh'">
     <ng-template pTemplate="caption">
       <app-product-overview-header
         (manualJsonChangedEvent)="loadProducts($event)"
@@ -42,9 +46,15 @@
   <ng-template pTemplate="emptymessage">
     <tr>
       <td colspan="100%">
-         <p class="flex flex-row justify-content-center">No records found</p>
+         <!-- <p class="flex flex-row justify-content-center"> -->
+          <ul>
+            <li>weitere erweiterungen: </li>
+            <li>hinzufügen eines action buttons um tarife sich zu merken</li>
+            <li>zugriff auf diese merkliste über eine separate route</li>
+            <li></li>
+          </ul>
+         <!-- </p> -->
       </td>
     </tr>
   </ng-template>
   </p-table>
-</div>
